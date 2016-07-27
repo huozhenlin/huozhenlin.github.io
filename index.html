@@ -12,7 +12,16 @@
 <body>
 <header>
 
-    <div id="time"></div>
+    <div id="time">
+        <div id="time_right">
+
+        </div>
+        <div id="overread">
+            <p id="read" >
+                1111
+            </p>
+        </div>
+    </div>
 </header>
 <div id="box">
     <div class="box_left">
@@ -174,10 +183,10 @@
     <div class="footing">
         <ul>
             <li>
-                <a href="javascript:;">Tel:XXXXXXX</a>
+                <a href="javascript:;">Tel:1305815****</a>
             </li>
             <li>
-                <a href="javascript:;">Email:xxxxx@qq.com</a>
+                <a href="javascript:;">Email:1031734796@qq.com</a>
             </li>
 
         </ul>
@@ -308,7 +317,7 @@
         m=checktime(m);
         s=checktime(s);
 
-        document.getElementById("time").innerHTML=d+","+h+":"+m+":"+s;
+        document.getElementById("time_right").innerHTML=d+","+h+":"+m+":"+s;
         t=setTimeout(function(){
             time();
         },1000);
@@ -337,6 +346,59 @@
         document.getElementById('introduce').innerHTML='';
         go = setInterval(textlist, sd);
     }
+
+
+   //统计浏览次数
+    var caution = false
+    function setCookie(name, value, expires, path, domain, secure) {
+        var curCookie = name + "=" + escape(value) +
+                ((expires) ? "; expires=" + expires.toGMTString() : "") +
+                ((path) ? "; path=" + path : "") +
+                ((domain) ? "; domain=" + domain : "") +
+                ((secure) ? "; secure" : "")
+        if (!caution || (name + "=" + escape(value)).length <= 4000)
+            document.cookie = curCookie
+        else if (confirm("Cookie exceeds 4KB and will be cut!"))
+            document.cookie = curCookie
+    }
+    function getCookie(name) {
+        var prefix = name + "="
+        var cookieStartIndex = document.cookie.indexOf(prefix)
+        if (cookieStartIndex == -1)
+            return null
+        var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length)
+        if (cookieEndIndex == -1)
+            cookieEndIndex = document.cookie.length
+        return unescape(document.cookie.substring(cookieStartIndex + prefix.length,
+                cookieEndIndex))
+    }
+    function deleteCookie(name, path, domain) {
+        if (getCookie(name)) {
+            document.cookie = name + "=" +
+                    ((path) ? "; path=" + path : "") +
+                    ((domain) ? "; domain=" + domain : "") +
+                    "; expires=Thu, 01-Jan-70 00:00:01 GMT"
+        }
+    }
+    function fixDate(date) {
+        var base = new Date(0)
+        var skew = base.getTime()
+        if (skew > 0)
+            date.setTime(date.getTime() - skew)
+    }
+    var now = new Date()
+    fixDate(now)
+    now.setTime(now.getTime() + 730 * 24 * 60 * 60 * 1000)
+    var visits = getCookie("counter")
+    if (!visits)
+        visits = 1
+    else
+        visits = parseInt(visits) + 1
+    setCookie("counter", visits, now)
+
+    //  document.write("<font size=6 color=red>欢迎您，您是第：" + visits + " 个访问该站点的访客");
+    var s=document.getElementById("overread");
+    s.innerHTML=("<font size=6 color=red>欢迎您，您是第：" + visits + " 个访问该站点的访客");
 
 
 </script>
