@@ -10,41 +10,51 @@
 
 </head>
 <body>
+<!--
+	这个控制背景图片
+	-->
+<div id="div1">
+    <img src="http://dl.bizhi.sogou.com/images/2013/11/26/421428.jpg?f=download" />
+</div>
 <header>
-	
-	<div id="div1"><img src="http://dl.bizhi.sogou.com/images/2013/11/26/421428.jpg?f=download" /></div>
 
-    <div id="time">
-        <div align="center" id="time_right">
+	<div id="time">
 
-        </div>
+        <!--访问量-->
         <div align="center" id="overread">
-            <span style="color: blanchedalmond;font-size: 30px;position: absolute;margin-left: -120px;line-height: 100px">历史访问量：</span>
-            <a href="http://www.amazingcounters.com">
-               <img src="http://cc.amazingcounters.com/counter.php?i=3205147&c=9615754" alt="AmazingCounters.com"
-                style="height: 60px;margin-top: 20px;margin-left: 70px">
-            </a>
-        </div>
+        <span style="color: blanchedalmond;font-size: 30px;position: absolute;margin-left: -120px;line-height: 100px">历史访问量：</span>
+        <a href="http://www.amazingcounters.com">
+            <img src="http://cc.amazingcounters.com/counter.php?i=3205147&c=9615754" alt="AmazingCounters.com"
+                 style="height: 60px;margin-top: 20px;margin-left: 70px">
+        </a>
+    </div>
+
+
+         <!--控制头部右边的时间-->
+        <div align="center" id="time_right"> </div>
+
     </div>
 </header>
+
+
 <div id="box">
     <div class="box_left">
-        <span class="name">Mr Huo</span>
+        <span class="name" onclick="show_box_right()">永远相信<br>美好的事情即将发生</span>
         <div class="nav">
             <ul class="nav_list">
-                <li><a href="#">Home</a></li>
+                <li><a onclick="show_box_right_hidden()">Music</a></li>
             </ul>
             <ul>
-                <li><a href="#">About</a></li>
+                <li><a >About</a></li>
             </ul>
             <ul>
-                <li><a href="#">Porfolior</a></li>
+                <li><a >Porfolior</a></li>
             </ul>
             <ul>
-                <li><a href="#">Serive</a></li>
+                <li><a >Serive</a></li>
             </ul>
             <ul>
-                <li><a href="#">Contact</a></li>
+                <li><a>Contact</a></li>
             </ul>
         </div>
     </div>
@@ -63,6 +73,36 @@
             天天面向对象，但我的对象在哪里？就是你了，没错，说的就是你！<br>这个为测试版的网页，
             还有很多需要改进的地方，github部署个人主页，等着你
         </div>
+    </div>
+
+    <div class="box_right_hidden">
+        <div id="music_player"
+             style="
+             width: 500px;
+             margin: 10px auto;
+             height: 300px;
+             ">
+
+
+            <embed src="http://www.xiami.com/widget/206303769_78896,1774191999,1775713592,_500_300_5695c1_457cb4_1/multiPlayer.swf"
+                   type="application/x-shockwave-flash"
+                   width="500"
+                   height="300"
+                   wmode="opaque">
+            </embed>
+
+        <div class="music_introduce">
+            <span>
+                我的爱好有很多，像听音乐，养花，看电影等等<br>
+                一首好的音乐能陶醉人的心情<br>
+                踏破铁鞋无觅处，柳暗花明又一村，希望你也喜欢这几首歌
+            </span>
+        </div>
+
+
+        </div>
+
+
     </div>
 </div>
 
@@ -308,6 +348,33 @@
         var myPie = new Chart(document.getElementById("canvas3").getContext("2d")).Pie(pieDate);
 
     }
+
+
+
+
+
+
+
+     //    控制显示右边栏显示
+    function show_box_right_hidden(){
+
+            document.getElementsByClassName("box_right_hidden")[0].style.display="block";
+            document.getElementsByClassName("box_right")[0].style.display="none";
+
+
+    }
+
+    function show_box_right(){
+           document.getElementsByClassName("box_right")[0].style.display="block";
+           document.getElementsByClassName("box_right_hidden")[0].style.display="none";
+    }
+
+
+
+
+
+
+
 
 
 
