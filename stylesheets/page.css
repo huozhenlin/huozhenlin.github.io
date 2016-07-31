@@ -31,46 +31,76 @@ a{
 #box .box_left{
 	width:35% ;
 	height: 600px;
-	background: greenyellow;
 	position: absolute;
+    background:#ffffff;
+    /*filter:alpha(opacity=80);  *//* ie 有效*/
+    /*-moz-opacity:0.8; *//* Firefox  有效*/
+    /*opacity: 0.8; *//* 通用，其他浏览器  有效*/
 	float: left;
 }
 #box .box_right{
 	width: 60%;
 	height: 600px;
-	background: pink;
 	float: right;
+}
+.music_introduce{
+    margin-top: 30px;
+    width:100%;
+    height: 200px;
+    padding: 20px 10px;
+    font-family: 微软微软雅黑;
+    font-size: 30px;
+
+}
+
+#box .box_right_hidden{
+    width: 60%;
+    height: 600px;
+    display: none;
+    float: right;
 }
 
 .name{
+    cursor: pointer;
 	width: 250px;
 	height: 120px;
-	background: gray;
 	display: inline-block;
 	position: relative;
 	top: 60px;
 	left: 50px;
 	text-align: center;
 	color: burlywood;
-	font-size: 60px;
+	font-size: 20px;
 	font-family: "微软雅黑";
-	line-height: 120px;
+
 }
 .nav{
 	position: absolute;
 	height: 420px;
 	width: 100%;
-	background:white;
+
 	margin-top:60px ;
 }
 .nav ul{
 	list-style: none;
 }
 
-.nav ul li a{ 
+.nav ul li a:hover {
+    color: gold;
+    cursor: pointer;
+    transform:  rotate(360deg);
+    -webkit-transition:all 2s;
+    -moz-transition:all 2s;
+    -ms-transition:all 2s;
+    -o-transition:all 2s;
+    transition:all 2s;
+}
+
+
+.nav ul li a{
+    /*transition:ease-in 1.2s;*/
 	height: 60px;	
-    display:-moz-inline-box; 
-    display:inline-block; 
+    display:inline-block;
     padding:5px 20px; 
     color:#fff; 
     line-height: 60px;
@@ -133,9 +163,9 @@ a{
 .totop{position: fixed;bottom: 100px;margin-left: 800px;}
 #time{
     background-color: dodgerblue;
-    filter:alpha(opacity=50);  /* ie 有效*/
-	-moz-opacity:0.5; /* Firefox  有效*/
-	opacity: 0.5; /* 通用，其他浏览器  有效*/
+    filter:alpha(opacity=80);  /* ie 有效*/
+	-moz-opacity:0.8; /* Firefox  有效*/
+	opacity: 0.8; /* 通用，其他浏览器  有效*/
 	width: 1500px;
 	height: 100px;
 	margin: 0px auto;
@@ -265,7 +295,7 @@ footer .footing ul{
 }
 
 footer .footing ul li a{
-
+    color: #ffffff;
     text-decoration: none;
     margin-top: 10px;
     text-align: center;
